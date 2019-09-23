@@ -69,7 +69,8 @@ class SnapshotWatchView extends Ui.WatchFace {
 			if(i != 0 && i != 15 && i != 30 && i != 45)
 				{ hashMarksArray[i][1] = -85; }
     		else
-				{ hashMarksArray[i][1] = -67; }
+    			{ hashMarksArray[i][1] = -85; }
+				//{ hashMarksArray[i][1] = -67; }
 		}
 		
         setLayout(Rez.Layouts.WatchFace(dc));
@@ -189,13 +190,13 @@ class SnapshotWatchView extends Ui.WatchFace {
         var offset = 0;
         if (battery == 100) 
         	{ offset = 6; }
-        dc.drawText(width_screen/2-33-offset, 7, Gfx.FONT_SMALL, Lang.format("$1$%", [battery.format("%2d")]), Graphics.TEXT_JUSTIFY_LEFT|Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(0.7*width_screen/2-offset, 0.1*height_screen, Gfx.FONT_TINY, Lang.format("$1$%", [battery.format("%2d")]), Graphics.TEXT_JUSTIFY_LEFT|Graphics.TEXT_JUSTIFY_VCENTER);
 
 		if (showSteps)
 		{
 			// Show steps
-	        dc.drawText(width_screen-4, height_screen/2 - 14, Gfx.FONT_SMALL, ActMon.getInfo().steps, Graphics.TEXT_JUSTIFY_RIGHT|Graphics.TEXT_JUSTIFY_VCENTER);
-	        dc.drawText(width_screen-4, height_screen/2 + 11, Gfx.FONT_SMALL, ActMon.getInfo().stepGoal, Graphics.TEXT_JUSTIFY_RIGHT|Graphics.TEXT_JUSTIFY_VCENTER);
+	        dc.drawText(width_screen-4, height_screen/2 - 14, Gfx.FONT_TINY, ActMon.getInfo().steps, Graphics.TEXT_JUSTIFY_RIGHT|Graphics.TEXT_JUSTIFY_VCENTER);
+	        dc.drawText(width_screen-4, height_screen/2 + 11, Gfx.FONT_TINY, ActMon.getInfo().stepGoal, Graphics.TEXT_JUSTIFY_RIGHT|Graphics.TEXT_JUSTIFY_VCENTER);
 		}
 		
 		if (showRiseSet)
@@ -496,12 +497,12 @@ class SnapshotWatchView extends Ui.WatchFace {
 		drawHash(dc, hashMarksArray[50][0], 110, 3, hashMarksArray[50][1], Gfx.COLOR_WHITE);
 		drawHash(dc, hashMarksArray[55][0], 110, 3, hashMarksArray[55][1], Gfx.COLOR_WHITE);
 
-		drawHash(dc, hashMarksArray[0][0],  110, 5, hashMarksArray[0][1],  Gfx.COLOR_WHITE);
-		drawHash(dc, hashMarksArray[15][0], 110, 5, hashMarksArray[15][1], Gfx.COLOR_WHITE);
-		drawHash(dc, hashMarksArray[45][0], 110, 5, hashMarksArray[45][1], Gfx.COLOR_WHITE);
+		drawHash(dc, hashMarksArray[0][0],  110, 3, hashMarksArray[0][1],  Gfx.COLOR_WHITE);
+		drawHash(dc, hashMarksArray[15][0], 110, 3, hashMarksArray[15][1], Gfx.COLOR_WHITE);
+		drawHash(dc, hashMarksArray[45][0], 110, 3, hashMarksArray[45][1], Gfx.COLOR_WHITE);
 
     	if(!showHeartRate)
-    		{ drawHash(dc, hashMarksArray[30][0], 110, 5, hashMarksArray[30][1], Gfx.COLOR_WHITE); }
+    		{ drawHash(dc, hashMarksArray[30][0], 110, 3, hashMarksArray[30][1], Gfx.COLOR_WHITE); }
     }
 
 
